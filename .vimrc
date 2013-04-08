@@ -1,0 +1,12 @@
+syntax on
+set backspace=indent,eol,start
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+set tabstop=8
+set number
+set autoindent
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=1
