@@ -1,1 +1,1 @@
-# My Vim setting and other coding env setting
+My Vim setting and other coding env setting
