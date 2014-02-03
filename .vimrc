@@ -1,10 +1,11 @@
 execute pathogen#infect()
 syntax on
+set nocompatible
 " Theme
 set background=dark
 colorscheme solarized
-if has("gui_macvim")
-  set transparency=16
+if has("gui_running")
+  set transparency=4
 endif
 " Typing
 set backspace=indent,eol,start
@@ -19,7 +20,6 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 set encoding=utf-8
-set nocompatible
 set laststatus=2
 " Power Line
 set t_Co=256
