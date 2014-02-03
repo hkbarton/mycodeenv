@@ -4,4 +4,5 @@
 # 3. vim-colors-solarized
 # 4. vim-commentary
 # 5. vim-powerline
+# 6. YouCompleteMe
 
