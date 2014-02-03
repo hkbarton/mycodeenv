@@ -4,7 +4,7 @@ set nocompatible
 " Theme
 set background=dark
 colorscheme solarized
-if has("gui_running")
+if has("gui_macvim")
   set transparency=4
 endif
 " Typing
