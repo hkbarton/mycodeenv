@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Create temp folder for make
-LOG="install.log"
 DIR=$(pwd)
+LOG=$DIR"/install.log"
 
 mkdir temp
 
@@ -18,37 +18,37 @@ function setupvim(){
   if [ ! -d ~/.vim/bundle/nerdtree ]; then
     echo "install nerdtree..."
     echo "\ninstall nerdtree..." >> $LOG
-    git clone https://github.com/scrooloose/nerdtree.git >> $LOG 2>1
+    git clone https://github.com/scrooloose/nerdtree.git >> $LOG 2>&1
   fi
   if [ ! -d ~/.vim/bundle/syntastic ]; then
     echo "install syntastic..."
     echo "\ninstall syntastic..." >> $LOG
-    git clone https://github.com/scrooloose/syntastic.git >> $LOG 2>1
+    git clone https://github.com/scrooloose/syntastic.git >> $LOG 2>&1
   fi
   if [ ! -d ~/.vim/bundle/vim-colors-solarized ]; then
     echo "install vim-colors-solarized..."
     echo "\ninstall vim-colors-solarized..." >> $LOG
-    git clone https://github.com/altercation/vim-colors-solarized.git >> $LOG 2>1
+    git clone https://github.com/altercation/vim-colors-solarized.git >> $LOG 2>&1
   fi
   if [ ! -d ~/.vim/bundle/vim-commentary ]; then
     echo "install vim-commentary..."
     echo "\ninstall vim-commentary..." >> $LOG
-    git clone https://github.com/tpope/vim-commentary.git >> $LOG 2>1
+    git clone https://github.com/tpope/vim-commentary.git >> $LOG 2>&1
   fi
   if [ ! -d ~/.vim/bundle/vim-powerline ]; then
     echo "install vim-powerline..."
     echo "\ninstall vim-powerline..." >> $LOG
-    git clone https://github.com/Lokaltog/vim-powerline.git >> $LOG 2>1
+    git clone https://github.com/Lokaltog/vim-powerline.git >> $LOG 2>&1
   fi
   if [ ! -d ~/.vim/bundle/YouCompleteMe ]; then
     echo "install YouCompleteMe..."
     echo "\ninstall YouCompleteMe..." >> $LOG
-    git clone https://github.com/Valloric/YouCompleteMe.git >> $LOG 2>1
+    git clone https://github.com/Valloric/YouCompleteMe.git >> $LOG 2>&1
     echo "post compiling YouCompleteMe..."
     echo "\npost compiling YouCompleteMe..." >> $LOG
     cd YouCompleteMe
-    git submodule update --init --recursive >> $LOG 2>1
-    ./install.sh --clang-completer >> $LOG 2>1
+    git submodule update --init --recursive >> $LOG 2>&1
+    ./install.sh --clang-completer >> $LOG 2>&1
     if [ $? -ne 0 ]; then
       echo "post compiling YouCompleteMe failed, check log file."
     fi
@@ -61,25 +61,26 @@ function imac(){
   # Install MacVim
   MacVimRepo="https://github.com/b4winckler/macvim.git"
   HasMacVim=1
-  if [ ! -z `hash mvim` ]; then
+  hashmvim=$(hash mvim 2>&1)
+  if [ ! -z "$hashmvim" ]; then
     echo "### need install MacVim first ###"
     cd temp
     echo "cloneing source code of MacVim......" 
     echo "cloneing source code of MacVim......" >> $LOG
-    git clone $MacVimRepo >> $LOG 2>1
+    git clone $MacVimRepo >> $LOG 2>&1
     cd macvim
     echo "configuring MacVim......."
     echo "\nconfiguring MacVim......." >> $LOG
-    ./configure --with-features=huge >> $LOG 2>1
+    ./configure --with-features=huge >> $LOG 2>&1
     if [ $? -eq 0 ]; then
       echo "make MacVim......"
       echo "\nmake MacVim......" >> $LOG
-      make >> $LOG 2>1
+      make >> $LOG 2>&1
       if [ $? -eq 0 ]; then
         cp src/MacVim/build/Release/MacVim.app /Applications/
         cp ../../
         # need run using sudo
-        cp mac/mvim /usr/bin
+        sudo cp mac/mvim /usr/bin
         echo "alias vi='mvim'" >> ~/.bash_profile
         echo "alias vim='mvim'" >> ~/.bash_profile
         HasMacVim=0
