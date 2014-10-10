@@ -7,6 +7,7 @@ LOG=$DIR"/install.log"
 mkdir temp
 
 function setupvim(){
+  cd $DIR
   cp .vimrc ~/
   if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
     echo "install vim pathogen (vim package manager)..."
@@ -77,8 +78,8 @@ function imac(){
       echo "\nmake MacVim......" >> $LOG
       make >> $LOG 2>&1
       if [ $? -eq 0 ]; then
-        cp src/MacVim/build/Release/MacVim.app /Applications/
-        cp ../../
+        cp -R src/MacVim/build/Release/MacVim.app /Applications/
+        cd $DIR
         # need run using sudo
         sudo cp mac/mvim /usr/bin
         echo "alias vi='mvim'" >> ~/.bash_profile
@@ -118,4 +119,3 @@ esac
 
 # Delete temp folder
 rm -rf temp
-    
