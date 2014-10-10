@@ -59,6 +59,8 @@ function setupvim(){
 }
 
 function imac(){
+  # in mac install xcode will install common develop library we need later
+  echo "### make sure you have the latest Xcode installed ###"
   # Install MacVim
   MacVimRepo="https://github.com/b4winckler/macvim.git"
   HasMacVim=1
@@ -72,7 +74,13 @@ function imac(){
     cd macvim
     echo "configuring MacVim......."
     echo "\nconfiguring MacVim......." >> $LOG
-    ./configure --with-features=huge >> $LOG 2>&1
+    ./configure --with-features=huge \
+                --enable-multibyte \
+                --enable-rubyinterp=yes \
+                --enable-perlinterp=yes \
+                --enable-luainterp=yes \
+                --enable-pythoninterp=yes \
+                --with-python-config-dir=/usr/lib/python2.7/config >> $LOG 2>&1
     if [ $? -eq 0 ]; then
       echo "make MacVim......"
       echo "\nmake MacVim......" >> $LOG
