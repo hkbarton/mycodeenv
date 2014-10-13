@@ -60,7 +60,21 @@ function setupvim(){
 
 function imac(){
   # in mac install xcode will install common develop library we need later
-  echo "### make sure you have the latest Xcode installed ###"
+  hasclt=$(pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>&1 | grep version)
+  if [ -z "$hasclt" ]; then
+    echo "no xcode command line tool found, need install first"
+    echo "installing xcode command line tool..."
+    echo "\ninstalling xcode command line tool..." >> $LOG
+    xcode-select --install >> $LOG 2>&1
+    if [ $? -ne 0 ]; then
+      echo "failed install xcode command line tool, check log"
+      echo "MAKE SURE you have latest version of xcode installed"
+      return 1
+    fi
+    echo "please run this script again after you finish install xcode command line tool"
+    echo "\nplease run this script again after you finish install xcode command line tool" >> $LOG
+    return 0
+  fi
   # Install MacVim
   MacVimRepo="https://github.com/b4winckler/macvim.git"
   HasMacVim=1
