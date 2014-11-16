@@ -16,31 +16,43 @@ function setupvim(){
   fi
   # start install plugin use pathogen
   cd ~/.vim/bundle
+  # NERDTree
   if [ ! -d ~/.vim/bundle/nerdtree ]; then
     echo "install nerdtree..."
     echo "\ninstall nerdtree..." >> $LOG
     git clone https://github.com/scrooloose/nerdtree.git >> $LOG 2>&1
   fi
+  # syntastic
   if [ ! -d ~/.vim/bundle/syntastic ]; then
     echo "install syntastic..."
     echo "\ninstall syntastic..." >> $LOG
     git clone https://github.com/scrooloose/syntastic.git >> $LOG 2>&1
   fi
+  # color theme - solarized
   if [ ! -d ~/.vim/bundle/vim-colors-solarized ]; then
     echo "install vim-colors-solarized..."
     echo "\ninstall vim-colors-solarized..." >> $LOG
     git clone https://github.com/altercation/vim-colors-solarized.git >> $LOG 2>&1
   fi
+  # comment plugin
   if [ ! -d ~/.vim/bundle/vim-commentary ]; then
     echo "install vim-commentary..."
     echo "\ninstall vim-commentary..." >> $LOG
     git clone https://github.com/tpope/vim-commentary.git >> $LOG 2>&1
   fi
+  # power line
   if [ ! -d ~/.vim/bundle/vim-powerline ]; then
     echo "install vim-powerline..."
     echo "\ninstall vim-powerline..." >> $LOG
     git clone https://github.com/Lokaltog/vim-powerline.git >> $LOG 2>&1
   fi
+  # ctrlp.vim file name search plugin
+  if [ ! -d ~/.vim/bundle/ctrlp.vim ]; then
+    echo "install ctrlp.vim..."
+    echo "\ninstall ctrlp.vim..." >> $LOG
+    git clone https://github.com/kien/ctrlp.vim.git >> $LOG 2>&1
+  fi
+  # YouCompleteMe
   if [ ! -d ~/.vim/bundle/YouCompleteMe ]; then
     echo "install YouCompleteMe..."
     echo "\ninstall YouCompleteMe..." >> $LOG

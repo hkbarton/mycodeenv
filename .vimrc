@@ -25,3 +25,8 @@ set laststatus=2
 set t_Co=256
 " Syntastic Configuration
 let g:syntastic_java_javac_config_file_enabled=1
+" For ctrlp file search plugin
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map='<c-p>'
+" NERDTree shortcut
+map <C-n> :NERDTreeToggle<CR>
