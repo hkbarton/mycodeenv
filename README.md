@@ -1,5 +1,5 @@
 ### One click setup script for VIM coding environment
-This script will help me (maybe you) install and setup VIM in Mac or Linux machine. This script will do follow things:
+This script will help me (maybe you) install and setup VIM in Mac or Linux(not finish yet) machine. It will do these things:
 
 1. Clone the latest vim source code and compile/install vim on your machine
 2. Install and setup below plugins:
