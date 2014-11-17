@@ -16,7 +16,7 @@ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.s
 
 ### Since I start use NeoBundle to mange some of my plugins, I don't need rely on pathogen now
 
-	# start install plugin use pathogen
+  # start install plugin use pathogen
 # if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
 #   echo "install vim pathogen (vim package manager)..."
 #   echo "\ninstall vim pathogen (vim package manager)..." >> $LOG
