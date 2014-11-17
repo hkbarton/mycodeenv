@@ -3,14 +3,15 @@ This script will help me (maybe you) install and setup VIM in Mac or Linux(not f
 
 1. Clone the latest vim source code and compile/install vim on your machine
 2. Install and setup below plugins:
-	* pathogen
+	* NeoBundle
 	* NERDTree
 	* Syntastic
 	* Solarized color theme
 	* vim-commentary
 	* vim-powerline
 	* ctrlp (file search plugin)
-	* YouCompleteMe 
+	* YouCompleteMe
+	* ack.vim (full text search in multiple files, instead of vimgrep)
 3. Setup .vimrc file, you can check .vimrc in this repo and change what you want
 
 ### How to install/execute?
