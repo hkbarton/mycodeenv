@@ -11,8 +11,8 @@ function setupvim(){
   cp .vimrc ~/
   cp -R ./.vim ~/
 
-# install NeoBundle
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh >> $LOG 2>&1
+  # install NeoBundle
+  curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh >> $LOG 2>&1
 
 ### Since I start use NeoBundle to mange some of my plugins, I don't need rely on pathogen now
 
