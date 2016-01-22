@@ -60,6 +60,10 @@ set laststatus=2
 set t_Co=256
 " Syntastic Configuration
 let g:syntastic_java_javac_config_file_enabled=1
+" Use eslint as javascript checker
+let g:syntastic_javascript_checkers=['eslint']
+let s:eslint_path = system('PATH=$(npm bin):$PATH && which eslint')
+let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
 " For ctrlp file search plugin
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map='<c-p>'
