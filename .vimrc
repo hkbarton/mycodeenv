@@ -22,6 +22,7 @@ NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Valloric/YouCompleteMe'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'mileszs/ack.vim'
+NeoBundle 'derekwyatt/vim-scala'
 
 " Required:
 call neobundle#end()
@@ -56,6 +57,8 @@ set nofoldenable
 set foldlevel=1
 set encoding=utf-8
 set laststatus=2
+set binary
+set noeol
 " Power Line
 set t_Co=256
 " Syntastic Configuration
