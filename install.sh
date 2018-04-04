@@ -4,9 +4,10 @@
 DIR=$(pwd)
 LOG=$DIR"/install.log"
 
+rm -rf temp
 mkdir temp
 
-function setupvim(){
+setupvim() {
   cd $DIR
   cp .vimrc ~/
   cp -R ./.vim ~/
@@ -80,7 +81,7 @@ function setupvim(){
   echo "Done! Happy Hacking!"
 }
 
-function imac(){
+imac() {
   # in mac install xcode will install common develop library we need later
   hasclt=$(pkgutil --pkg-info=com.apple.pkg.CLTools_Executables 2>&1 | grep version)
   if [ -z "$hasclt" ]; then
@@ -145,8 +146,8 @@ function imac(){
   fi
 }
 
-function ilinux(){
-  echo "install for linux"
+ilinux() {
+  setupvim
 }
 
 case `uname` in
