@@ -39,7 +39,7 @@ syntax on
 set nocompatible
 " Theme
 set background=dark
-colorscheme solarized
+colorscheme distinguished
 if has("gui_macvim")
   set transparency=4
 endif
